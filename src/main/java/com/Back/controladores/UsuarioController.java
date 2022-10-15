@@ -15,9 +15,15 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping("/")
-    public Usuario guardarUsuario(@RequestBody Usuario usuario) throws Exception{
-        return usuarioService.guardarUsuario(usuario);
+    @PostMapping("/registros")
+    public Usuario guardarUsuario(@RequestBody Usuario newUsuario) throws Exception{
+        System.out.println("Usuario a guardar: " + newUsuario.getUsername());
+        System.out.println("Usuario a guardar: " + newUsuario.getPassword());
+        System.out.println("Usuario a guardar: " + newUsuario.getNombre());
+        System.out.println("Usuario a guardar: " + newUsuario.getApellido());
+        System.out.println("Usuario a guardar: " + newUsuario.getEmail());
+
+        return usuarioService.guardarUsuario(newUsuario);
     }
 
 

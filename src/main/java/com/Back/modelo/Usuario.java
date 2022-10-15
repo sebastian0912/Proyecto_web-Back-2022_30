@@ -15,10 +15,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usuarios")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Usuario implements UserDetails {
 
     @Id
@@ -33,8 +30,28 @@ public class Usuario implements UserDetails {
 
     private boolean enabled = true;
 
+    public Usuario(Long id,  String password, String nombre, String apellido, String email, boolean enabled) {
+        this.id = id;
+        this.username = email;
+        this.password = password;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.enabled = enabled;
+    }
+
+    public Usuario(Long id, String username, String password, String nombre, String apellido, String email) {
+        this.id = id;
+        this.username = email;
+        this.password = password;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+    }
 
 
+    public Usuario() {
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -62,11 +79,58 @@ public class Usuario implements UserDetails {
     }
 
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    @Override
+    public String getUsername() {
+        return username;
+    }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 }

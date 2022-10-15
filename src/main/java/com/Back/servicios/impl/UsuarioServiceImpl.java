@@ -20,6 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario guardarUsuario(Usuario usuario) throws Exception {
         Usuario usuarioLocal = usuarioRepository.findByUsername(usuario.getUsername());
+
         if(usuarioLocal != null){
             System.out.println("El usuario ya existe");
             throw new Exception("El usuario ya esta presente");
