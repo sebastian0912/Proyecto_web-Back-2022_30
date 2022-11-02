@@ -7,4 +7,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario,Long> {
 
     public Usuario findByUsername(String username);
 
+
+    Usuario findByEmail(String email);
+
+    void deleteByEmail(String correo);
 }

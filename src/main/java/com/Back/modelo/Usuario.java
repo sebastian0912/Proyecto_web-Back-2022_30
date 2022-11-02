@@ -1,16 +1,13 @@
 package com.Back.modelo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -30,7 +27,7 @@ public class Usuario implements UserDetails {
 
     private boolean enabled = true;
 
-    public Usuario(Long id,  String password, String nombre, String apellido, String email, boolean enabled) {
+    public Usuario(Long id, String password, String nombre, String apellido, String email, boolean enabled) {
         this.id = id;
         this.username = email;
         this.password = password;
