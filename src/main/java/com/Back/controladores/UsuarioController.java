@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +49,13 @@ public class UsuarioController {
         System.out.println("Usuario a guardar: " + id);
         Usuario usuario = usuarioService.BuscarUsuario(id);
         pdf.CertificadoLaboral(usuario);
+    }
+
+    @GetMapping("/desprendible/{id}")
+    public void getDocumentoDesprendible(@PathVariable("id") Long id) throws FileNotFoundException {
+        System.out.println("Usuario a guardar: " + id);
+        Usuario usuario = usuarioService.BuscarUsuario(id);
+        pdf.DesprendibleNomina(usuario);
     }
 
     @PostMapping("/todos")
